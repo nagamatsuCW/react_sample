@@ -1,6 +1,13 @@
-import React from 'react';
+import * as React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Hoge from './Hoge'
+import Fuga from './Fuga'
+import FugaIndex from './FugaIndex'
+import FugaFuga from './FugaFuga'
+import User from './User'
+
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 function App() {
   return (
@@ -10,14 +17,16 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Hoge />} />
+            <Route path="fuga" element={<Fuga />}>
+              <Route path="/" element={<FugaIndex />} />
+              <Route path="/piyo" element={<FugaFuga />} />
+              <Route path="/:id" element={<User />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
       </header>
     </div>
   );
