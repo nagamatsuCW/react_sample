@@ -7,7 +7,9 @@ import FugaIndex from './FugaIndex'
 import FugaFuga from './FugaFuga'
 import User from './User'
 
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+// import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+
+import { Router } from "@reach/router"
 
 function App() {
   return (
@@ -17,16 +19,14 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Hoge />} />
-            <Route path="fuga" element={<Fuga />}>
-              <Route path="/" element={<FugaIndex />} />
-              <Route path="/piyo" element={<FugaFuga />} />
-              <Route path="/:id" element={<User />} />
-            </Route>
-          </Routes>
-        </BrowserRouter>
+        <Router>
+          <Hoge path="/" />
+          <Fuga path="fuga">
+            <FugaIndex path="/" />
+            <FugaFuga path="/piyo" />
+            <User path="/:id" id="" />
+          </Fuga>
+        </Router>
       </header>
     </div>
   );

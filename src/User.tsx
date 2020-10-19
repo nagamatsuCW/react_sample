@@ -1,10 +1,12 @@
 import * as React from 'react'
-import {
-  useNavigate,
-  useParams
-} from 'react-router-dom';
-const User = () => {
-  const { id } = useParams();
+import { RouteComponentProps } from "@reach/router"
+
+interface Props {
+  id: string
+}
+
+const User = (props:Props & RouteComponentProps ) => {
+  const { id } = props;
   return(
     <div>
       Userrrrr: {id}

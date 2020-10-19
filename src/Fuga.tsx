@@ -1,11 +1,14 @@
 import * as React from 'react'
-import {
-  Link,
-  useNavigate,
-  Outlet
-} from 'react-router-dom';
-const Fuga = () => {
-  const navigate = useNavigate();
+
+
+import { Router, RouteComponentProps, Link, useNavigate } from "@reach/router"
+
+interface Props {
+  children: React.ReactNode
+}
+
+const Fuga = (props: Props & RouteComponentProps) => {
+  const navigate = useNavigate()
   const initialState = ""
   const [userName, setName] = React.useState(initialState)
   return(
@@ -37,7 +40,7 @@ const Fuga = () => {
       >
         useNavigate
       </button>
-      <Outlet />
+      {props.children}
     </div>
   )
 }

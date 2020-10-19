@@ -1,10 +1,9 @@
 import * as React from 'react'
-import {
-  Link,
-} from 'react-router-dom';
+
+import { Router, RouteComponentProps, Link } from "@reach/router"
 
 
-const Hoge = () => (
+const Hoge = (props: RouteComponentProps) => (
   <div>
     Hogeeeee
     <Link to="/fuga">fuga</Link>

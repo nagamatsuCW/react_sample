@@ -1,9 +1,10 @@
 import * as React from 'react'
-import {
-  useNavigate,
-} from 'react-router-dom';
-const Fuga = () => {
-  const navigate = useNavigate();
+
+
+import { RouteComponentProps } from "@reach/router"
+
+
+const Fuga = (props: RouteComponentProps) => {
   return(
     <div>
       FugaaaaaaIndexaaaaaa
