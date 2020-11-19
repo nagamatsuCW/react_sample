@@ -4,6 +4,8 @@ import {
   useNavigate,
   Outlet
 } from 'react-router-dom';
+import history from './history'
+
 const Fuga = () => {
   const navigate = useNavigate();
   const initialState = ""
