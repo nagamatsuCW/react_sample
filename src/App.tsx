@@ -11,14 +11,14 @@ import User from './User'
 import { connect } from 'react-redux'
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { createBrowserHistory } from 'history'
-
+import history from 'history/browser';
 // actions
 import { increment } from './action'
 
 import MediaQuery from 'react-responsive'
 
-export const history = createBrowserHistory()
+export const historyWindow = window
+
 function App(props:any) {
   console.log(props)
   history.push('fuga')
@@ -36,7 +36,7 @@ function App(props:any) {
           <div>max</div>
         </MediaQuery>
         <button onClick={props.onClick}>onClick{props.count}</button>
-        <BrowserRouter>
+        <BrowserRouter window={historyWindow}>
           <Routes>
             <Route path="/" element={<Hoge />} />
             <Route path="fuga" element={<Fuga />}>

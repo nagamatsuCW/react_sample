@@ -1,26 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux'
+import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux'
+import { ConnectedRouter, routerMiddleware } from 'connected-react-router';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { createBrowserHistory } from 'history'
+import history from './history'
 
 // reducer
-import rootReducer from './reducer'
+import createRootReducer from './reducer'
 
 export const MediaContext = React.createContext('pc');
 
-
-const store = createStore(rootReducer)
+export const store = createStore(
+  createRootReducer(history),
+  compose(
+    applyMiddleware(routerMiddleware(history))
+  )
+)
 
 
 ReactDOM.render(
   <React.StrictMode>
     <MediaContext.Provider value="sp">
     <Provider store={store}>
-      <App />
+      <ConnectedRouter history={history}>
+        <App />
+      </ConnectedRouter>
     </Provider>
     </MediaContext.Provider>
   </React.StrictMode>,

@@ -1,11 +1,14 @@
 import { defaultCipherList } from 'constants'
 import { combineReducers } from 'redux'
 import counter from './counter'
+import { connectRouter } from 'connected-react-router'
+import history, { History } from '../history'
 
-const rootReducer = combineReducers({
+
+const createRootReducer = (history: History) => combineReducers({
+  router: connectRouter(history),
   counter
 })
+export default createRootReducer
 
-export default rootReducer
-
-export type RootState = ReturnType<typeof rootReducer>
+export type RootState = ReturnType<typeof createRootReducer>

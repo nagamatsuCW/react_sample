@@ -4,7 +4,14 @@ import {
   useNavigate,
   Outlet
 } from 'react-router-dom';
-import history from './history'
+import { push } from 'connected-react-router'
+import history from 'history/browser';
+
+import { historyWindow } from './App'
+
+// store
+import { store } from './index'
+
 
 const Fuga = () => {
   const navigate = useNavigate();
@@ -34,10 +41,12 @@ const Fuga = () => {
       </div>
       <button
         onClick={
-          ()=>{navigate('/')}
+          ()=>{
+            history.push('fuga/piyo')
+          }
         }
       >
-        useNavigate
+        history.pushaaa0000
       </button>
       <Outlet />
     </div>

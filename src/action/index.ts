@@ -12,4 +12,4 @@ export const decrement = () => {
 }
 
 
-export type Actions = ReturnType<typeof increment | typeof decrement>
+export type ActionsType = ReturnType<typeof increment | typeof decrement>
