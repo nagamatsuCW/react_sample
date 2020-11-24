@@ -1,9 +1,8 @@
 import * as React from 'react'
-import {
-  useNavigate,
-} from 'react-router-dom';
-const Fuga = () => {
-  const navigate = useNavigate();
+
+
+const Fuga:React.FC = (props) => {
+  console.log(props)
   return(
     <div>
       FugaaaaaaIndexaaaaaa

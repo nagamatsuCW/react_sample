@@ -5,12 +5,17 @@ import logo from './logo.svg';
 import './App.css';
 import Hoge from './Hoge'
 import Fuga from './Fuga'
-import FugaIndex from './FugaIndex'
-import FugaFuga from './FugaFuga'
-import User from './User'
+
 import { connect } from 'react-redux'
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useParams,
+  useRouteMatch
+} from "react-router-dom";
 import history from 'history/browser';
 // actions
 import { increment } from './action'
@@ -21,7 +26,6 @@ export const historyWindow = window
 
 function App(props:any) {
   console.log(props)
-  history.push('fuga')
   return (
     <div className="App">
       <header className="App-header">
@@ -36,16 +40,14 @@ function App(props:any) {
           <div>max</div>
         </MediaQuery>
         <button onClick={props.onClick}>onClick{props.count}</button>
-        <BrowserRouter window={historyWindow}>
-          <Routes>
-            <Route path="/" element={<Hoge />} />
-            <Route path="fuga" element={<Fuga />}>
-              <Route path="/" element={<FugaIndex />} />
-              <Route path="/piyo" element={<FugaFuga />} />
-              <Route path="/:id" element={<User />} />
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              <Hoge />
             </Route>
-          </Routes>
-        </BrowserRouter>
+            <Route path="/fuga" component={Fuga} />
+          </Switch>
+        </Router>
       </header>
     </div>
   );

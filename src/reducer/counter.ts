@@ -1,7 +1,4 @@
 import { ActionsType } from '../action'
-import {
-  useNavigate,
-} from 'react-router-dom';
 export interface CounterState {
   count: number
 }

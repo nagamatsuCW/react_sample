@@ -1,13 +1,17 @@
 import * as React from 'react'
 import {
-  useNavigate,
   useParams
 } from 'react-router-dom';
-const User = () => {
-  const { id } = useParams();
+
+interface ParamTypes {
+  id: string
+}
+
+const User:React.FC = (props) => {
+  const { id } = useParams<ParamTypes>();
   return(
     <div>
-      Userrrrr: {id}
+      Userrsssrrr: {id}
     </div>
   )
 }
