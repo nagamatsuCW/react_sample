@@ -1,16 +1,14 @@
 import * as React from 'react'
+import { connect } from 'react-redux'
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link,
-  useParams,
   useRouteMatch
 } from "react-router-dom";
 import { push } from 'connected-react-router'
-import history from 'history/browser';
 
-import { historyWindow } from './App'
 import FugaIndex from './FugaIndex'
 import FugaFuga from './FugaFuga'
 import User from './User'
@@ -18,8 +16,11 @@ import User from './User'
 // store
 import { store } from './index'
 
+interface Props {
+  push: typeof push
+}
 
-const Fuga = () => {
+const Fuga:React.FC<Props> = (props) => {
   let { path, url } = useRouteMatch();
   const initialState = ""
   const [userName, setName] = React.useState(initialState)
@@ -48,7 +49,7 @@ const Fuga = () => {
       <button
         onClick={
           ()=>{
-            history.push('fuga/piyo')
+            props.push('/fuga/piyo')
           }
         }
       >
@@ -65,4 +66,4 @@ const Fuga = () => {
   )
 }
 
-export default Fuga
+export default connect(null, { push })(Fuga);

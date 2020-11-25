@@ -3,11 +3,11 @@ export interface CounterState {
   count: number
 }
 
-const initialState: CounterState = {
+export const initialCounterState: CounterState = {
   count: 0
 };
 
-const counter = (state:CounterState = initialState, action:ActionsType) => {
+const counter = (state:CounterState = initialCounterState, action:ActionsType) => {
   switch (action.type) {
     case 'INCREMENT':
 
