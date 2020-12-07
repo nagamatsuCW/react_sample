@@ -5,17 +5,10 @@ import { Provider } from 'react-redux'
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import configureStore from './store'
+import store from './store'
+import MediaContext from './MediaContext'
 
-// reducer
-import { preloadedState } from './reducer'
 
-export const MediaContext = React.createContext('pc');
-
-export const store = configureStore(preloadedState())
-export function dispatch(action: any) {
-  return store.dispatch(action);
-}
 
 ReactDOM.render(
   <React.StrictMode>

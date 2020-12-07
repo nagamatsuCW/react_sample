@@ -1,13 +1,34 @@
 import * as React from 'react'
-import {
-  Link,
-} from 'react-router-dom';
-const FugaFuga = () => {
+import { connect } from "react-redux";
+import { increment } from './action'
+import { StoreState } from './reducer'
+import { Dispatch } from 'redux'
+
+const FugaFuga:React.FC<Props> = (props) => {
   return(
-    <div>
-      FugaaaPiyoooooo
+    <div id="test">
+      FugaaaPiyoooooo{props.count}
+      <button onClick={props.increment}>increment</button>
     </div>
   )
 }
 
-export default FugaFuga
+function mapStateToProps(state:StoreState) {
+  return {
+      count: state.counter.count
+  };
+}
+
+function mapDispatchToProps(dispatch: Dispatch) {
+  return {
+    increment: () => { dispatch(increment()) }
+  }
+}
+
+// type Props = ownProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
+type Props = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(FugaFuga);

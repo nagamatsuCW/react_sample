@@ -12,9 +12,6 @@ import FugaIndex from './FugaIndex'
 import FugaFuga from './FugaFuga'
 import User from './User'
 
-// store
-import { store } from './index'
-
 interface Props {
   push: typeof push
 }

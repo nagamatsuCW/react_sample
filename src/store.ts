@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import { routerMiddleware } from 'connected-react-router';
-import createRootReducer, { StoreState } from './reducer'
+import createRootReducer, { StoreState, preloadedState } from './reducer'
 import { createBrowserHistory } from 'history'
 export const history = createBrowserHistory()
 
@@ -13,7 +13,7 @@ const enhancer = composeEnhancers(
 );
 
 
-export default function configureStore(preloadedState: StoreState) {
+function configureStore(preloadedState: StoreState) {
   const store = createStore(
     createRootReducer(history),
     preloadedState,
@@ -21,4 +21,11 @@ export default function configureStore(preloadedState: StoreState) {
   )
 
   return store
+}
+
+const store = configureStore(preloadedState())
+export default store
+
+export function dispatch(action: any) {
+  return store.dispatch(action);
 }
