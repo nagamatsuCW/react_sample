@@ -9,7 +9,7 @@ import {
 import { push } from 'connected-react-router'
 
 import FugaIndex from './FugaIndex'
-import FugaFuga from './FugaFuga'
+import FugaFuga from './components/FugaFuga/index'
 import User from './User'
 
 interface Props {

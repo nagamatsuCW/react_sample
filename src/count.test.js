@@ -3,6 +3,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import Enzyme, { shallow, mount } from 'enzyme';
 import renderer from 'react-test-renderer';
 import CountUp from './CountUp';
+import store from './store'
 Enzyme.configure({ adapter: new Adapter() });
 
 
@@ -22,5 +23,4 @@ describe("<CountUp /> コンポーネント", () => {
     todoInputProps.clickHandler()
     expect(enzymeWrapper.find("h3").text()).toEqual("count: 1");
   });
-
 });

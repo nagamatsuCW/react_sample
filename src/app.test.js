@@ -2,7 +2,7 @@ import React from 'react';
 import Adapter from 'enzyme-adapter-react-16';
 import Enzyme, { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
-import FugaFuga from './FugaFuga';
+import FugaFuga from './components/FugaFuga/FugaFuga';
 Enzyme.configure({ adapter: new Adapter() });
 
 function sum(a, b) {
@@ -21,7 +21,7 @@ describe('FugaFuga.tsx', () => {
 
   test('show', () => {
     const component = shallow(makeComponent());
-    expect(component.find('#test').text()).toEqual('FugaaaPiyoooooo');
+    expect(component.find('#test').text()).toEqual('FugaaaPiyooooooincrement');
   })
 
 })
