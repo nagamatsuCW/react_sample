@@ -1,9 +1,14 @@
-import reducerTester from 'reducer-tester'
 import reducer, { initialCounterState as initialState } from './counter'
-import { actions } from '../action'
+import { decrement, increment } from '../action'
 
-reducerTester({
-  reducer,
-  state: initialState,
-  tests: [actions.increment(), actions.decrement()]
+
+describe('reducer test', () => {
+  it('increment', () => {
+    const next = reducer(initialState, increment())
+    expect(next).toMatchSnapshot()
+  })
+  it('decrement', () => {
+    const next = reducer(initialState, decrement())
+    expect(next).toMatchSnapshot()
+  })
 })

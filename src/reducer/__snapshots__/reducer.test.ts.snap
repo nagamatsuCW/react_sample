@@ -1,28 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DECREMENT 1`] = `
-Snapshot Diff:
-- Before
-+ After
-
-  Object {
--   "count": 0,
-+   "count": -1,
-  }
+exports[`reducer test decrement 1`] = `
+Object {
+  "count": -1,
+}
 `;
 
-exports[`INCREMENT 1`] = `
-Snapshot Diff:
-- Before
-+ After
-
-  Object {
--   "count": 0,
-+   "count": 1,
-  }
-`;
-
-exports[`handle initial state 1`] = `
-Snapshot Diff:
-Compared values have no visual difference.
+exports[`reducer test increment 1`] = `
+Object {
+  "count": 1,
+}
 `;

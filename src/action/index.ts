@@ -1,13 +1,18 @@
+export const actionTypes = {
+  INCREMENT: "INCREMENT",
+  DECREMENT: "DECREMENT"
+}
+
 
 export const increment = () => {
   return {
-    type: "INCREMENT"
+    type: actionTypes.INCREMENT
   } as const
 }
 
 export const decrement = () => {
   return {
-    type: "DECREMENT"
+    type: actionTypes.DECREMENT
   } as const
 }
 
