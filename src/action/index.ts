@@ -11,5 +11,6 @@ export const decrement = () => {
   } as const
 }
 
+export const actions = { increment, decrement }
 
 export type ActionsType = ReturnType<typeof increment | typeof decrement>
