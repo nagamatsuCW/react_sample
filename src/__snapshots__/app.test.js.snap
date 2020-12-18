@@ -1,7 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`test component 1`] = `
-<div>
-  FugaaaaaaIndexaaaaaa
-</div>
-`;
+exports[`FugaFuga.tsx show 1`] = `ShallowWrapper {}`;
