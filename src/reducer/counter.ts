@@ -1,10 +1,12 @@
 import { ActionsType } from '../action'
 export interface CounterState {
-  count: number
+  count: number,
+  name: string
 }
 
 export const initialCounterState: CounterState = {
-  count: 0
+  count: 0,
+  name: ""
 };
 
 const counter = (state:CounterState = initialCounterState, action:ActionsType) => {
@@ -20,6 +22,11 @@ const counter = (state:CounterState = initialCounterState, action:ActionsType) =
         ...state,
         count: state.count - 1
       }
+    case 'NAME_CHANGE':
+        return {
+          ...state,
+          name: action.payload.name
+        }
     default:
       return state
   }

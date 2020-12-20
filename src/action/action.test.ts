@@ -14,4 +14,14 @@ describe('actions', () => {
     }
     expect(actions.decrement()).toEqual(decrementAction)
   })
+
+  it('nameChangeAction', () => {
+    const nameChangeAction = {
+      type: "NAME_CHANGE",
+      payload: {
+        name: "testさん"
+      }
+    }
+    expect(actions.nameChange("test")).toEqual(nameChangeAction)
+  })
 })

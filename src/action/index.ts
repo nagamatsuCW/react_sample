@@ -1,21 +1,42 @@
-export const actionTypes = {
-  INCREMENT: "INCREMENT",
-  DECREMENT: "DECREMENT"
+import {Action} from 'redux'
+
+enum ActionNames {
+  INCREMENT = 'INCREMENT',
+  DECREMENT = 'DECREMENT',
+  NAME_CHANGE = 'NAME_CHANGE'
 }
 
-
-export const increment = () => {
-  return {
-    type: actionTypes.INCREMENT
-  } as const
+interface IncrementAction extends Action {
+  type: ActionNames.INCREMENT
+}
+interface DecrementAction extends Action {
+  type: ActionNames.DECREMENT
 }
 
-export const decrement = () => {
-  return {
-    type: actionTypes.DECREMENT
-  } as const
+interface NameChangeAction extends Action {
+  type: ActionNames.NAME_CHANGE,
+  payload: {
+    name: string
+  }
 }
 
-export const actions = { increment, decrement }
+export const increment = (): IncrementAction => ({
+  type: ActionNames.INCREMENT
+})
 
-export type ActionsType = ReturnType<typeof increment | typeof decrement>
+
+export const decrement = (): DecrementAction => ({
+  type: ActionNames.DECREMENT
+})
+
+export const nameChange = (value:string): NameChangeAction => ({
+  type: ActionNames.NAME_CHANGE,
+  payload: {
+    name: `${value}さん`
+  }
+})
+
+
+export const actions = { increment, decrement, nameChange }
+
+export type ActionsType = IncrementAction | DecrementAction | NameChangeAction

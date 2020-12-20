@@ -3,11 +3,13 @@
 exports[`reducer test decrement 1`] = `
 Object {
   "count": -1,
+  "name": "",
 }
 `;
 
 exports[`reducer test increment 1`] = `
 Object {
   "count": 1,
+  "name": "",
 }
 `;

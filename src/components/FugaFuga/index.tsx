@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { increment } from '../../action'
+import { increment, nameChange } from '../../action'
 import { StoreState } from '../../reducer'
 import { Dispatch } from 'redux'
 import FugaFuga from './FugaFuga'
@@ -7,13 +7,15 @@ import FugaFuga from './FugaFuga'
 
 function mapStateToProps(state:StoreState) {
   return {
-      count: state.counter.count
+      count: state.counter.count,
+      name: state.counter.name
   };
 }
 
 function mapDispatchToProps(dispatch: Dispatch) {
   return {
-    increment: () => { dispatch(increment()) }
+    increment: () => { dispatch(increment()) },
+    nameChange: (value: string) => { dispatch(nameChange(value)) }
   }
 }
 

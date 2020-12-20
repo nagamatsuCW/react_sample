@@ -8,6 +8,12 @@ const FugaFuga:React.FC<Props> = (props) => {
       <div id="count">
         {props.count}
       </div>
+      <div id="name">
+        <p>名前: {props.name}</p>
+        <div>
+          <input type="text" onChange={e => props.nameChange(e.target.value)}/>
+        </div>
+      </div>
       <button id="incrementButton" onClick={props.increment}>increment</button>
     </div>
   )
