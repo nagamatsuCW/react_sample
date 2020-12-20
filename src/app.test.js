@@ -22,7 +22,7 @@ describe('FugaFuga.tsx', () => {
   test('show', () => {
     const component = shallow(makeComponent());
     expect(component).toMatchSnapshot();
-    expect(component.find('#test').text()).toEqual('FugaaaPiyooooooincrement');
+    expect(component.find('#test').text()).toEqual('FugaaaPiyoooooo名前: increment');
   })
 
 })

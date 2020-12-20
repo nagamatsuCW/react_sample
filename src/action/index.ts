@@ -1,3 +1,4 @@
+import { createActions } from 'redux-actions';
 import {Action} from 'redux'
 
 enum ActionNames {
@@ -37,6 +38,17 @@ export const nameChange = (value:string): NameChangeAction => ({
 })
 
 
-export const actions = { increment, decrement, nameChange }
+export const actions = createActions(
+  {
+    [ActionNames.NAME_CHANGE]: (value:string) => ({
+      name: `${value}さん`
+    }),
+  },
+  ActionNames.DECREMENT,
+  ActionNames.INCREMENT
+);
+
+
+// export const actions = { increment, decrement, nameChange }
 
 export type ActionsType = IncrementAction | DecrementAction | NameChangeAction

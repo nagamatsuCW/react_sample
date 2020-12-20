@@ -1,5 +1,4 @@
 import { actions } from './index'
-import { actionTypes } from './index'
 
 describe('actions', () => {
   it('incrementAction', () => {

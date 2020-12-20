@@ -17,6 +17,7 @@
     "@types/react-responsive": "^8.0.2",
     "@types/react-router-dom": "^5.1.6",
     "@types/react-test-renderer": "^17.0.0",
+    "@types/redux-actions": "^2.6.1",
     "@types/redux-logger": "^3.0.8",
     "connected-react-router": "6.0.0",
     "enzyme": "^3.11.0",
