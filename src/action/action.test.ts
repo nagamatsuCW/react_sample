@@ -18,9 +18,9 @@ describe('actions', () => {
     const nameChangeAction = {
       type: "NAME_CHANGE",
       payload: {
-        name: "testさん"
+        name: "test"
       }
     }
-    expect(actions.nameChange("test")).toEqual(nameChangeAction)
+    expect(actions.nameChange({name: "test"})).toEqual(nameChangeAction)
   })
 })
