@@ -15,7 +15,7 @@ function mapStateToProps(state:StoreState) {
 function mapDispatchToProps(dispatch: Dispatch) {
   return {
     increment: () => { dispatch(increment()) },
-    nameChange: (value: string) => { dispatch(nameChange(value)) }
+    nameChange: (value: string) => { dispatch(nameChange({name: value})) }
   }
 }
 
