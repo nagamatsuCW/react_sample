@@ -14,17 +14,17 @@ export const initialCounterState: CounterState = {
 
 
 const reducer = reducerWithInitialState(initialCounterState)
-    .case(actions.increment, (state) => ({
+    .caseWithAction(actions.increment, (state) => ({
         ...state,
         count: state.count +1
       }))
-    .case(actions.decrement, (state) => ({
+    .caseWithAction(actions.decrement, (state) => ({
       ...state,
       count: state.count -1
     }))
-    .case(actions.nameChange, (state, action) => ({
+    .caseWithAction(actions.nameChange, (state, action) => ({
       ...state,
-      name: action.name
+      name: action.payload.name
     }));
 
 export default reducer
