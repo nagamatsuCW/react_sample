@@ -1,7 +1,5 @@
-import { Action } from "redux";
 import { reducerWithInitialState } from "typescript-fsa-reducers";
-import { combineActions, handleActions } from 'redux-actions';
-import { ActionsType, actions } from '../action'
+import { actions } from '../action'
 export interface CounterState {
   count: number,
   name: string
