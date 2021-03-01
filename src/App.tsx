@@ -1,31 +1,24 @@
 import * as React from 'react';
-import { Dispatch } from "redux";
 
+import { Router, Switch, Route } from "react-router-dom";
+import { ConnectedRouter } from 'connected-react-router';
+import MediaQuery from 'react-responsive'
+import { history } from './store'
+import { useSelector, useDispatch } from "react-redux";
+
+// actions
+import { increment } from './store/counter';
+
+// components
 import logo from './logo.svg';
 import './App.css';
-import Hoge from './Hoge'
-import Fuga from './Fuga'
-
-import { connect } from 'react-redux'
-
-import {
-  Router,
-  Switch,
-  Route,
-  Link,
-  useParams,
-  useRouteMatch
-} from "react-router-dom";
-// actions
-import { increment } from './action'
-
-import MediaQuery from 'react-responsive'
-import { ConnectedRouter } from 'connected-react-router';
-import { history } from './store'
-
+import Hoge from './components/Hoge'
+import Fuga from './components/Fuga'
 
 function App(props:any) {
-  console.log(props)
+  const name = useSelector(state => state.counter.name);
+  const count = useSelector(state => state.counter.count);
+  const dispatch = useDispatch();
   return (
     <ConnectedRouter history={history}>
       <div className="App">
@@ -40,7 +33,7 @@ function App(props:any) {
           <MediaQuery maxDeviceWidth={767}>
             <div>max</div>
           </MediaQuery>
-          <button onClick={props.onClick}>onClick{props.count}</button>
+          <button onClick={() => dispatch(increment())}>onClick{count}</button>
           <Router history={history}>
             <Switch>
               <Route exact path="/">
@@ -55,15 +48,4 @@ function App(props:any) {
   );
 }
 
-const mapStateToProps = (state: any) => ({
-  count: state.counter.count
-})
-
-const mapDispatchToProps = (dispatch: Dispatch) => ({
-  onClick: () => dispatch(increment())
-})
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App)
+export default App

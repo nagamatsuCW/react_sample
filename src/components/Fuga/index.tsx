@@ -8,9 +8,9 @@ import {
 } from "react-router-dom";
 import { push } from 'connected-react-router'
 
-import FugaIndex from './FugaIndex'
-import FugaFuga from './components/FugaFuga/index'
-import User from './User'
+import FugaFC from './Fuga'
+import FugaFuga from '../FugaFuga'
+import User from '../../User'
 
 interface Props {
   push: typeof push
@@ -53,7 +53,7 @@ const Fuga:React.FC<Props> = (props) => {
       </button>
       <Switch>
         <Route exact path={path}>
-          <FugaIndex />
+          <FugaFC />
         </Route>
         <Route path="/fuga/piyo" component={FugaFuga} />
         <Route path="/fuga/:id" component={User} />
