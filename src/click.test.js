@@ -33,7 +33,6 @@ describe('components', () => {
         clickHandler: jest.fn(),
         title: "test"
       }
-    
       const enzymeWrapper = mount(<ClickTest {...props} />)
 
       // propsの確認

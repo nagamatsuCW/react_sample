@@ -1,28 +1,27 @@
-import { connect } from "react-redux";
-import { increment, nameChange } from '../../action'
-import { StoreState } from '../../reducer'
-import { Dispatch } from 'redux'
-import FugaFuga from './FugaFuga'
+import * as React from 'react'
+import { useSelector, useDispatch } from "react-redux";
+import { increment, nameChange } from '../../store/counter';
 
 
-function mapStateToProps(state:StoreState) {
-  return {
-      count: state.counter.count,
-      name: state.counter.name
-  };
+const FugaFuga:React.FC = () => {
+  const name = useSelector(state => state.counter.name);
+  const count = useSelector(state => state.counter.count);
+  const dispatch = useDispatch();
+  return(
+    <div id="test">
+      FugaaaPiyoooooo
+      <div id="count">
+        {count}
+      </div>
+      <div id="name">
+        <p>名前: {name}</p>
+        <div>
+          <input type="text" onChange={e => dispatch(nameChange(e.target.value))}/>
+        </div>
+      </div>
+      <button id="incrementButton" onClick={() => dispatch(increment())}>increment</button>
+    </div>
+  )
 }
 
-function mapDispatchToProps(dispatch: Dispatch) {
-  return {
-    increment: () => { dispatch(increment()) },
-    nameChange: (value: string) => { dispatch(nameChange({name: value})) }
-  }
-}
-
-// type Props = ownProps & RetuZrnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
-export type Props = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(FugaFuga);
+export default FugaFuga

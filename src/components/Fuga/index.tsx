@@ -49,7 +49,7 @@ const Fuga:React.FC<Props> = (props) => {
           }
         }
       >
-        history.pushaaa0000
+        history.push
       </button>
       <Switch>
         <Route exact path={path}>

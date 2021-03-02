@@ -6,13 +6,13 @@ export interface CounterState {
 }
 
 export const initialState: CounterState = {
-  count: 1,
+  count: 0,
   name: ""
 };
 
 
 // Sliceを生成する
-const slice = createSlice({
+export const slice = createSlice({
   name: "counter",
   initialState,
   reducers: {

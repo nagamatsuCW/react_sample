@@ -1,26 +1,27 @@
-import { actions } from './index'
+// import { actions } from './index'
+import { increment, decrement, nameChange } from '../store/counter'
 
 describe('actions', () => {
   it('incrementAction', () => {
     const incrementAction = {
-      type: "INCREMENT"
+      type: "counter/increment"
     }
-    expect(actions.increment()).toEqual(incrementAction)
+    expect(increment()).toEqual(incrementAction)
   })
   it('decrementAction', () => {
     const decrementAction = {
-      type: "DECREMENT"
+      type: "counter/decrement"
     }
-    expect(actions.decrement()).toEqual(decrementAction)
+    expect(decrement()).toEqual(decrementAction)
   })
 
   it('nameChangeAction', () => {
     const nameChangeAction = {
-      type: "NAME_CHANGE",
+      type: "counter/nameChange",
       payload: {
         name: "test"
       }
     }
-    expect(actions.nameChange({name: "test"})).toEqual(nameChangeAction)
+    expect(nameChange({name: "test"})).toEqual(nameChangeAction)
   })
 })
