@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ClickTest from './ClickTest'
+import ClickTest from '../ClickTest'
 
 export default () => {
   const [count, setCount] = useState(0);

@@ -3,7 +3,7 @@ import {
   Link,
 } from 'react-router-dom';
 
-import HogeHoge from '../../HogeHoge'
+import HogeHoge from '../HogeHoge'
 
 const Hoge = () => (
   <div>

@@ -10,7 +10,7 @@ import { push } from 'connected-react-router'
 
 import FugaFC from './Fuga'
 import FugaFuga from '../FugaFuga'
-import User from '../../User'
+import User from '../User'
 
 interface Props {
   push: typeof push
@@ -33,6 +33,9 @@ const Fuga:React.FC<Props> = (props) => {
           </li>
           <li>
             <Link to={`/fuga/${userName}`}>User</Link>
+          </li>
+          <li>
+            <Link to={`/test`}>test</Link>
           </li>
         </ul>
       </nav>
@@ -57,6 +60,7 @@ const Fuga:React.FC<Props> = (props) => {
         </Route>
         <Route path="/fuga/piyo" component={FugaFuga} />
         <Route path="/fuga/:id" component={User} />
+        <Route path="/test" component={User} />
       </Switch>
     </div>
   )

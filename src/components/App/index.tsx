@@ -3,17 +3,17 @@ import * as React from 'react';
 import { Router, Switch, Route } from "react-router-dom";
 import { ConnectedRouter } from 'connected-react-router';
 import MediaQuery from 'react-responsive'
-import { history } from './store'
+import { history } from '../../store'
 import { useSelector, useDispatch } from "react-redux";
 
 // actions
-import { increment } from './store/counter';
+import { increment } from '../../store/counter';
 
 // components
-import logo from './logo.svg';
+import logo from '../../logo.svg';
 import './App.css';
-import Hoge from './components/Hoge'
-import Fuga from './components/Fuga'
+import Hoge from '../Hoge'
+import Fuga from '../Fuga'
 
 function App(props:any) {
   const name = useSelector(state => state.counter.name);

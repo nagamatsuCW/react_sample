@@ -1,8 +1,8 @@
 import React from 'react';
 import Adapter from 'enzyme-adapter-react-16';
 import Enzyme, { shallow } from 'enzyme';
-import FugaFuga from './components/FugaFuga/index';
-import { increment } from './store/counter'
+import FugaFuga from '../FugaFuga/index';
+import { increment } from '../../store/counter'
 import { useSelector, useDispatch } from 'react-redux'
 const useSelectorMock = jest.fn()
 const useDispatchMock = jest.fn()

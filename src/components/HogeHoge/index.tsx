@@ -3,7 +3,7 @@ import {
   Link,
 } from 'react-router-dom';
 
-import MediaContext from './MediaContext'
+import MediaContext from '../../MediaContext'
 
 const HogeHoge = () => {
   const value = React.useContext(MediaContext);
